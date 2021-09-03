@@ -1,0 +1,118 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: lato;
+}
+html, body{
+    height: 100%;
+}
+header{
+    color: white;
+    background-color: #4c3282;
+	width: 100%;
+	padding: 20px 2%;
+	background-position: center;
+	font-weight: 300;
+}
+
+header > nav{
+	display: flex;
+    flex-flow: row-reverse wrap;
+}
+
+header nav ul{
+	list-style-type: none;
+}
+header nav li{
+    position: relative;
+    bottom: 20px;
+	padding: 0px 40px;
+	display: inline-block;
+}
+header > nav li  a{
+	text-decoration: none;
+	color: white;
+}
+
+/*Problema no width se estive ele a pagina quebra tem que resolve*/
+
+section.perfil{
+    float: left;
+    clear: both;
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: #4c3282;
+}
+section.perfil h1, section.perfil p{
+    /* Achei o problema ele estar no left: 80px*/
+    position: relative;
+    left: 80px;
+    bottom: 62px;
+    font-size: 26px;
+}
+section.perfil p{
+    position: relative;
+    left: 80px;
+    bottom: 62px;
+    font-size: 15px;
+    color: #bdbdbd;
+}
+.filtros-principal{
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    color: rgb(146, 146, 146);
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.filtros-principal button{
+    color: white;
+    background-color:#4c3282;
+    padding: 10px;
+    max-width: 150px;
+    width: 100%;
+    text-align: center;
+    border: 0.5px solid rgb(201, 198, 198);
+    border-radius: 25px;
+}
+.filtros-principal button a{
+    text-decoration: none;
+    color: white;
+}
+section.filtros-principal h2{
+    text-align: left;
+}
+section.registradas{
+    margin-top: 30px;
+    height: 100%;
+    background-color: #f0f0f5;
+    margin-bottom: 25px;
+}
+section.registradas h2{
+    background-color: #dcd4e5;
+    color: #4a288f;
+    display: flex;
+    justify-content: center;
+    height: 55px;
+    padding-top: 4px;
+}
+section.registradas h3{
+    color: #508218;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+footer{
+    color: white;
+    background-color: #4c3282;
+    text-align: center;
+    font-size: 18px;
+    height: 80px;
+    padding-top: 15px;
+}
