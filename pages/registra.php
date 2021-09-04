@@ -19,20 +19,14 @@
     <input type="text" name="nome" /><br/><br/>
     Stado:<br />
     <select name="stado">
-        <option value="Parida">Parida</option>
+        <option value="Dando leite">Dando leite</option>
         <option value="Solteira">Solteira</option>
         <option value="Prenha">Prenha</option>
     </select>
     <br/>
     <br/>
-    data:<br />
-    <select name="dcriar">
-        <?php   
-            for($mes = 0; $mes <= 12; $mes++) {
-        ?>
-        <option value="<?php echo $today = date("$mes")?> "> <?php echo $mes;?></option>';
-        <?php } ?>
-    </select><br><br>
+    Pegou cria no mes:<br />
+    <input type="date" id="birthday" name="dcriar"><br> <br>
     litros: <br />
     <input type="text" name="litros">
     <br />

@@ -29,7 +29,6 @@
     <section>
         <button><a href="../pages/registra.php">Registrar</a></button>
     </section>
-    <section>
     <?php
         require"../config.php";
 
@@ -37,17 +36,19 @@
         $sql = $pdo->query($sql);
         if($sql->rowCount() > 0) {
             foreach($sql->fetchAll() as $registros) {
+                echo '<section>';
                 echo '<hr>';
                 echo '<br>'; 
                 echo '<h1>'.$registros['nome'].'</h1>';
                 echo '<h1>'.$registros['stado'].'</h1>';
                 echo '<h1>'.$registros['dcriar'].'</h1>';
                 echo '<h1>'.$registros['litros'].'</h1>';
+                echo '<div> <a href="editar.php?id='.$registros['id'].'">Editar</a> </div>';
                 echo '<hr>';
+                echo '</section>';
             }
         }
     ?>
-    </section>
     </main>
     
 </body>
