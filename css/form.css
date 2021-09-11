@@ -1,0 +1,49 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: lato; 
+}
+button{
+    height: 30px;
+    width: 80px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 46%;
+    background-color: rgb(89, 63, 150);
+    border-radius: 10px;
+    border: 1.5px solid #6666;
+}
+button a{
+    text-decoration: none;
+    color: white;
+}
+.area{
+    background-color: rgb(206, 247, 222);
+    margin: auto;
+    width:320px;
+    height:470px;
+}
+form{
+
+    position:absolute;
+    display:block;
+}
+fieldset
+{
+    width: 300px;
+    /* height: 400px; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+legend
+{
+  font-style:bold;
+  font-family: “Segoe UI”,”Arial”,”Times New Roman”;
+}
+input{
+    position: relative;
+}

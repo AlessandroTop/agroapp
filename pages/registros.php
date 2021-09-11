@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registros.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AgroApp</title>
 </head>
 <body>
     <!-- // Cabesalhor -->
@@ -19,36 +20,51 @@
             <ul>
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="registros.php">Registros</a></li>
-                <li><a href="#">Staticas</a></li>
+                <li><a href="estatisca.php">Staticas</a></li>
                 <li><a  style="color: #111; background-color: #4c2286;" href="#">Sair</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-    <section>
-        <button><a href="../pages/registra.php">Registrar</a></button>
-    </section>
-    <?php
-        require"../config.php";
+        <h1 class="titulo">Registros de vacas</h1>
+        <section class="add-vacas">
+            <button><a href="../pages/registra.php">Adicionar uma nova vaca</a></button>
+        </section><!--add-vacas-->
 
-        $sql = "SELECT * FROM registrar";
-        $sql = $pdo->query($sql);
-        if($sql->rowCount() > 0) {
-            foreach($sql->fetchAll() as $registros) {
-                echo '<section>';
-                echo '<hr>';
-                echo '<br>'; 
-                echo '<h1>'.$registros['nome'].'</h1>';
-                echo '<h1>'.$registros['stado'].'</h1>';
-                echo '<h1>'.$registros['dcriar'].'</h1>';
-                echo '<h1>'.$registros['litros'].'</h1>';
-                echo '<div> <a href="editar.php?id='.$registros['id'].'">Editar</a> </div>';
-                echo '<hr>';
-                echo '</section>';
-            }
-        }
-    ?>
+        <section>
+            <?php
+                require"../config.php";
+
+                $sql = "SELECT * FROM registrar";
+                $sql = $pdo->query($sql);
+                if($sql->rowCount() > 0) {
+                    foreach($sql->fetchAll() as $registros) {
+                        echo '<article>'; 
+            ?>
+
+            <div class="container-registros">
+                <?php 
+                        echo '<h1>'.$registros['nome'].'</h1>';
+
+                        echo '<p>Estado: '.$registros['stado'].'</p>';
+                        echo '<p>Pariu em : '.$registros['dpariu'].'</p>';
+                        echo '<p>Pegou criar em: '.$registros['dcriar'].'</p>';
+                        echo '<p>Quantos litros: '.$registros['litros'].'</p>';
+
+                        echo '<button><a href="editar.php?id='.$registros['id'].'">Editar</a></button> ';
+                        echo '<button style="background-color: #ff3a3a;"> <a href="delete.php?id='.$registros['id'].'">Apagar</a></button>';
+                        echo '</article>';
+                ?>
+            </div><!--container-registros-->
+            
+            <?php
+                       
+                    }
+                }
+            ?>
+            
+        </section><!--list-vacas-->
     </main>
     
 </body>

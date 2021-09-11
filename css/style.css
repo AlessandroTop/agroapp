@@ -99,7 +99,7 @@ section.registradas h2{
     color: #4a288f;
     display: flex;
     justify-content: center;
-    height: 55px;
+    height: 45px;
     padding-top: 4px;
 }
 section.registradas h3{
@@ -107,6 +107,17 @@ section.registradas h3{
     display: flex;
     justify-content: center;
     font-size: 40px;
+}
+section article{
+    display: flex;
+    flex-direction: column;
+}
+section article p {
+    text-transform: uppercase;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    font-size: 19px;
+    color: #4a288f;
 }
 footer{
     color: white;

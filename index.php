@@ -21,7 +21,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="pages/registros.php">Registros</a></li>
-                <li><a href="#">Staticas</a></li>
+                <li><a href="pages/estatisca.php">Staticas</a></li>
                 <li><a  style="color: #111; background-color: #4c2286;" href="#">Sair</a></li>
             </ul>
         </nav>
@@ -40,8 +40,6 @@
             <button>Todas<a href=""></a></button>
             <button>Parir este mês</button>
             <button>Registradas</button>
-            <button><a href="pages/registra.php">Adicionar vacas </a></button>
-
             <!--
                 // Botões para filtra se e vacas que vao pari etc..
             -->
@@ -62,8 +60,22 @@
             <!-- // para pari no mes -->
             <h2>Vacas para parir este mês</h2>
             <article>
-                    <h4>Meu artigo1</h4>
-                    <p>Mes 10/09/21</p>
+            <?php
+
+                $sql = "SELECT * FROM `registrar`";
+                $sql = $pdo->query($sql);
+                $data = date("m");
+
+                if($sql->rowCount() > 0){
+                    foreach($sql->fetchAll() as $registros){
+                        if($registros['dcriar'][6] ==  $data){
+                            echo '<p>'.$registros['nome'].'___'.$registros['dcriar'].'</p>';
+
+                        }
+                    }
+                }   
+
+                ?>
             </article>
         </section>
     </main>
