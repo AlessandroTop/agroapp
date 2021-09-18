@@ -1,7 +1,7 @@
 <?php require "config.php";?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     <!-- // Cabesalhor -->
     <header>
         <hgroup>
-            <h1>AgrorApp</h1>
+            <h1>AgroApp</h1>
         </hgroup>
 
         <!-- // Menu -->
@@ -47,9 +47,23 @@
 
          <!-- // quantidade registradas -->
          <section class="registradas">
+             
             <h2>Vacas registradas</h2>
             <article>
-                <h3>30</h3>
+                <h3><?php
+                $sql = "SELECT * FROM `registrar`";
+                $sql = $pdo->query($sql);
+                $numeros_de_registros = 0;
+
+                if($sql->rowCount() > 0){
+                    foreach($sql->fetchAll() as $vacas){
+                        $numeros_de_registros++;
+                    }
+                    echo "<h3>".$numeros_de_registros."</h3>";
+
+                }
+
+             ?></h3>
             </article>
 
             
@@ -61,20 +75,20 @@
             <h2>Vacas para parir este mês</h2>
             <article>
             <?php
-
                 $sql = "SELECT * FROM `registrar`";
                 $sql = $pdo->query($sql);
-                $data = date("m");
+                $data = date("m-Y");
 
                 if($sql->rowCount() > 0){
                     foreach($sql->fetchAll() as $registros){
-                        if($registros['dcriar'][6] ==  $data){
-                            echo '<p>'.$registros['nome'].'___'.$registros['dcriar'].'</p>';
+                        $data_que_vaca_pegou_criar = date('m-Y', strtotime("+9 month", strtotime($registros["dcriar"])));
 
+                        if($data_que_vaca_pegou_criar ==  $data){
+                            echo '<span>*'.$registros['nome'].'__'.$data_que_vaca_pegou_criar.'</span>';
                         }
+                       
                     }
                 }   
-
                 ?>
             </article>
         </section>

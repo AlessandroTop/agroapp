@@ -31,7 +31,7 @@ section.add-vacas button a{
 .container-registros{
     margin-top: 40px;
     height: 180px;
-    width: 100%;
+    width: 96%;
     background-color: #ffffff;
     border: 1px solid #5e3ea1;
     color: #5e3ea1;
@@ -39,7 +39,7 @@ section.add-vacas button a{
     
 }
 .container-registros p{
-    margin-left: 180px;
+    margin-left: 90px;
     font-size: 18px;
 }
 .container-registros h1{
@@ -62,4 +62,39 @@ section.add-vacas button a{
     color: white;
 }
 
+@media only screen and (max-width: 1024px) {
+    .container-registros{
+        width: 95%;
+    }
+}
 
+@media only screen and (max-width: 624px) {
+    .container-registros{
+        width: 95%;
+    }
+    section.add-vacas button{
+        padding: 7px;
+        margin-left: 33%;
+        margin-right: 34%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    section.add-vacas button{
+        padding: 7px;
+        margin-left: 22.5%;
+        margin-right: 22.5%;
+    }
+    .container-registros{
+        width: 90%;
+    }
+    .container-registros h1{
+        font-size: 20px;
+    }
+    
+    .container-registros p{
+        margin-left: 60px;
+        font-size: 18px;
+        font-size: 16px;
+    }
+}

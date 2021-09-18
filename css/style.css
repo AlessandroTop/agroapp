@@ -7,12 +7,13 @@
 html, body{
     height: 100%;
 }
+
 header{
     color: white;
     background-color: #5e3ea1;
+    max-width: 1380px;
 	width: 100%;
-	padding: 20px 2%;
-	background-position: center;
+	padding: 10px 2%;
 	font-weight: 300;
 }
 
@@ -49,13 +50,13 @@ section.perfil{
 section.perfil h1, section.perfil p{
     /* Achei o problema ele estar no left: 80px*/
     position: relative;
-    left: 80px;
+    margin-left: 80px;
     bottom: 62px;
     font-size: 26px;
 }
 section.perfil p{
     position: relative;
-    left: 80px;
+    margin-left: 80px;
     bottom: 62px;
     font-size: 15px;
     color: #bdbdbd;
@@ -112,7 +113,7 @@ section article{
     display: flex;
     flex-direction: column;
 }
-section article p {
+section article span {
     text-transform: uppercase;
     margin-left: 50px;
     margin-bottom: 5px;
@@ -124,6 +125,79 @@ footer{
     background-color: #4c3282;
     text-align: center;
     font-size: 18px;
-    height: 80px;
+    height: 96px;
     padding-top: 15px;
+}
+@media only screen and (max-width: 1024px) {
+    header{
+        padding: 2px 2%;
+    }
+    header nav li{
+        font-size: 15px;
+        padding: 0 0 0 80px;
+    }
+}
+
+@media only screen and (max-width: 724px) {
+    header h1{
+        font-size: 22px;
+    }
+    header{
+        padding: 13px 0 0 2%;
+    }
+    header nav li{
+        font-size: 15px;
+        padding: 0 0 0 48px;
+    }
+}
+
+@media only screen and (max-width: 524px) {
+    header nav li{
+        font-size: 13px;
+        padding: 0 0 0 30px;
+    }
+
+    section.perfil{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: #4c3282;
+    flex-direction: column;
+    }
+    section.perfil h1{
+        position: relative;
+        right: 40px;
+        text-align: center;
+        margin-top: 70px;
+
+    }
+    section.perfil p{
+        margin-top: 10px;
+        font-size: 16px;
+        position: relative;
+        right: 20px;
+    }
+
+    
+}
+@media only screen and (max-width: 360px) {
+    header nav li{
+        font-size: 12px;
+        padding: 0 0 0 15px;
+    }
+
+    .filtros-principal button{
+        color: white;
+        background-color:#4c3282;
+        padding: 5px;
+        max-width: 100px;
+        width: 100%;
+        text-align: center;
+        border: 0.5px solid rgb(201, 198, 198);
+        border-radius: 25px;
+    }
 }

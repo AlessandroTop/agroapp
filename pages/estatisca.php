@@ -1,3 +1,4 @@
+<?php require "../config.php";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,13 +6,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>estatisca</title>
 </head>
 <body>
      <!-- // Cabesalhor -->
      <header>
         <hgroup>
-            <h1>AgrorApp</h1>
+            <h1>AgroApp</h1>
         </hgroup>
 
         <!-- // Menu -->
@@ -32,7 +33,20 @@
          <section class="registradas">
             <h2>Vacas registradas</h2>
             <article>
-                <h3>30</h3>
+                <h3><?php
+                $sql = "SELECT * FROM `registrar`";
+                $sql = $pdo->query($sql);
+                $numeros_de_registros = 0;
+
+                if($sql->rowCount() > 0){
+                    foreach($sql->fetchAll() as $vacas){
+                        $numeros_de_registros++;
+                    }
+                    echo "<h3>".$numeros_de_registros."</h3>";
+
+                }
+
+             ?></h3>
             </article>
 
             

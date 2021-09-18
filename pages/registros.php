@@ -12,7 +12,7 @@
     <!-- // Cabesalhor -->
     <header>
         <hgroup>
-            <h1>AgrorApp</h1>
+            <h1>AgroApp</h1>
         </hgroup>
 
         <!-- // Menu -->
@@ -39,27 +39,31 @@
                 $sql = "SELECT * FROM registrar";
                 $sql = $pdo->query($sql);
                 if($sql->rowCount() > 0) {
+                   
                     foreach($sql->fetchAll() as $registros) {
+                        $registrosNovo[] = $registros;
+                    }
+                    $registros_Reversor = array_reverse($registrosNovo);
+
+                    foreach($registros_Reversor as $valor){
                         echo '<article>'; 
             ?>
 
             <div class="container-registros">
                 <?php 
-                        echo '<h1>'.$registros['nome'].'</h1>';
+                        echo '<h1>'.$valor['nome'].'</h1>';
+                        echo '<p>Estado: '.$valor['stado'].'</p>';
+                        echo '<p>Pariu em : '.$valor['dpariu'].'</p>';
+                        echo '<p>Pegou criar em: '.$valor['dcriar'].'</p>';
+                        echo '<p>Quantos litros: '.$valor['litros'].'</p>';
 
-                        echo '<p>Estado: '.$registros['stado'].'</p>';
-                        echo '<p>Pariu em : '.$registros['dpariu'].'</p>';
-                        echo '<p>Pegou criar em: '.$registros['dcriar'].'</p>';
-                        echo '<p>Quantos litros: '.$registros['litros'].'</p>';
-
-                        echo '<button><a href="editar.php?id='.$registros['id'].'">Editar</a></button> ';
-                        echo '<button style="background-color: #ff3a3a;"> <a href="delete.php?id='.$registros['id'].'">Apagar</a></button>';
+                        echo '<button><a href="editar.php?id='.$valor['id'].'">Editar</a></button> ';
+                        echo '<button style="background-color: #ff3a3a;"> <a href="delete.php?id='.$valor['id'].'">Apagar</a></button>';
                         echo '</article>';
                 ?>
-            </div><!--container-registros-->
+            </div><!--container-registros -->
             
-            <?php
-                       
+            <?php 
                     }
                 }
             ?>
